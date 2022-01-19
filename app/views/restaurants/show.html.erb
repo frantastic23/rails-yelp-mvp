@@ -1,0 +1,17 @@
+<div>
+  <div class="mt-3 ml-4 mr-5">
+    <h1><%= @restaurant.name%>📍</h1>
+    <h6><%= @restaurant.address %></h6>
+    <h6><%= @restaurant.phone_number %></h6>
+    <h6><%= @restaurant.category %></h6>
+  <br>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item mb-2">
+         <%= review.content %> <%= "⭐" * review.rating %></li>
+      <% end %>
+    </ul>
+  <br>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-success rounded-pill" %>
+  </div>
+</div>
